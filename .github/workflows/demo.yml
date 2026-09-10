@@ -31,7 +31,7 @@ jobs:
         run: ls -la dist/
       - name: publish Js filename
         id: publish-js-filename
-        run: find dist/assets/*.js -type f -execdir echo "script={}" >> $GITHUB_OUTPUTS/ ';' >>
+        run: find dist/assets/*.js -type f -execdir echo "script={}" >> $GITHUB_OUTPUTS/ ';' 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -46,7 +46,7 @@ jobs:
         with:
           name: build-artifacts
       - name: output filename
-        run: echo "${{ needs.build.outputs.script }}" 
+        run: echo "${{ needs.build.outputs.build-artifacts }}" 
       - name: output build artifacts
         run: ls -la dist/
       - name: Deploy
